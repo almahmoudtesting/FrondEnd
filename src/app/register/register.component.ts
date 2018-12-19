@@ -15,10 +15,10 @@ import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/form
   templateUrl: './register.component.html'
 })
 export class RegisterComponent implements OnInit {
-  
+
   constructor(private formBuilder: FormBuilder, private userService: UserService) { }
 
   ngOnInit() {
-   
+
 
 }}

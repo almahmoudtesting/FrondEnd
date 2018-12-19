@@ -11,6 +11,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { OrganizerComponent } from './register/organizerreg/organizer.component';
 import { UserregComponent } from './register/userreg/userreg.component';
 import { LoginComponent } from './login/login.component';
+import { UservicesComponent } from './user/uservices/uservices.component';
+import { UserdetailsComponent } from './user/userdetails.component';
+import { EventComponent } from './event/event.component';
 
 @NgModule({
   declarations: [
@@ -20,12 +23,15 @@ import { LoginComponent } from './login/login.component';
     RegisterComponent,
     OrganizerComponent,
     UserregComponent,
-    LoginComponent
+    LoginComponent,
+    UservicesComponent,
+    UserdetailsComponent,
+    EventComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    //FormsModule,
+    // FormsModule,
     ReactiveFormsModule,
     HttpClientModule
   ],

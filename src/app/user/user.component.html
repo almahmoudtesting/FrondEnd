@@ -1,8 +1,15 @@
-<div>
-  <ul *ngFor="let user of users$ ">
+<div class="row">
+  <div class="col-md-6">
+  <ul *ngFor="let user of users$ "class="list-group-item" (click)="getUser(user)">
     <li>
-      {{user.username}} - {{user.userdob}} - {{user.useremail}} -{{user.usercity}} -{{user.userpassword}}
+      {{user.username}}
+
     </li>
   </ul>
 </div>
 
+<div class="col-md-6">
+  <app-userdetails [user]="currentUser"></app-userdetails>
+
+</div>
+</div>

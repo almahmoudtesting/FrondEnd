@@ -2,9 +2,6 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {User} from './user.model';
-import {FormGroup} from '@angular/forms';
-import {map} from 'rxjs/operators';
-import {parseHttpResponse} from 'selenium-webdriver/http';
 
 
 // const API_URL = 'http://localhost:8080/';
@@ -30,6 +27,18 @@ export class UserService {
 
     addOrganizer(a): Observable<User> {
       return this.http.post<User>(
-         `api/Users/AddUsers/ROLE_ORGANIZER`,JSON.stringify(a.value), API_ARGS);
+         `api/Users/AddUsers/ROLE_ORGANIZER`, JSON.stringify(a.value), API_ARGS);
     }
+    getUser(id: number): Observable<User> {
+
+    return this.http.get<User>(`api/Users/FindUsers/` + `${id}`);
+    }
+    updateUser(a, userid: number): Observable<User> {
+    return this.http.put<User>(`api/Users/UpdateUser/` + `${userid}` , JSON.stringify(a.value), API_ARGS);
+    }
+    deleteUser(userid: number): Observable<User> {
+    return this.http.delete<User>(`api/Users/DeleteUser/` + `${userid}`);
+    }
+
+
 }

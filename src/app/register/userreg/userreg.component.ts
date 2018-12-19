@@ -31,7 +31,7 @@ export class UserregComponent implements OnInit {
      // lastname : ``,
      // userphone: ``,
       userdob: '',
-      usercity:''
+      usercity: ''
     // }, {validator: passwordMatcher}); // pass in the validator function
   });
   }
@@ -41,13 +41,7 @@ export class UserregComponent implements OnInit {
     // console.log('Form submitted: ', this.myReactiveForm.value);		// alert('Form submitted!', JSON.stringify(this.myReactiveForm.value));
     // TODO: do something useful with form
   }
-  /*addCity(name: string): void {
-		this.cityService.addCity(name)
-			.subscribe(result => {
-				this.cityAdded = result;
-				this.cities = this.cityService.getCities();
-			})
-			*/
+
   }
 
 

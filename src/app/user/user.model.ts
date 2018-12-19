@@ -1,5 +1,6 @@
 export class User {
   constructor(
+    public  userid: number,
     public username: string,
    // public firstname: string,
    // public midname: string,
@@ -10,7 +11,7 @@ export class User {
   //  public usergender: string,
     public userdob: string,
     public usercity: string
-    
+
   ) {
   }
 }

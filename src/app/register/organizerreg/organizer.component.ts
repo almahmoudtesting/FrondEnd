@@ -30,7 +30,7 @@ export class OrganizerComponent implements OnInit {
      // lastname : ``,
      // userphone: ``,
       userdob: '',
-      usercity:''
+      usercity: ''
     // }, {validator: passwordMatcher}); // pass in the validator function
   });
   }
@@ -40,8 +40,8 @@ export class OrganizerComponent implements OnInit {
     // console.log('Form submitted: ', this.myReactiveForm.value);		// alert('Form submitted!', JSON.stringify(this.myReactiveForm.value));
     // TODO: do something useful with form
   }
- 
-			
+
+
   }
 
 

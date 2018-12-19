@@ -9,10 +9,11 @@ import {Component, OnInit} from '@angular/core';
     <a routerLink="/users" class="btn btn-primary">User List</a>
     <a routerLink="/register" class="btn btn-primary">Register</a>
     <a routerLink="/login" class="btn btn-primary">Login </a>
+    <a routerLink="/events" class="btn btn-primary">Events</a>
     <hr>
 		<router-outlet></router-outlet>
     <hr >
-    <div class="text-sm-center"> © 2018 Ahmad Al-Fahd All Rights not Reserved</div>
+    <div class="text-sm-center"> © 2018 MEvent C.O</div>
     </div>
   `
 })

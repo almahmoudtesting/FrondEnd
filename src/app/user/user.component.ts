@@ -10,20 +10,27 @@ import {UserService} from './user.service';
 })
 export class UserComponent implements OnInit {
   users$: User[];
+  currentUser: User;
 
   constructor( private userService: UserService) {
   }
 
   ngOnInit() {
-    
-    
-    this.userService.getUsers().subscribe(userData=> {
+
+  this.getUsers();
+  }
+
+  getUsers() {
+  this.userService.getUsers().subscribe(userData => {
         this.users$ = userData;
       },
       err => console.log(err),
       () => console.log('Getting users complete...')
     );
+  }
+
+  getUser(user) {
+    this.currentUser = user;
 
   }
-  
 }
