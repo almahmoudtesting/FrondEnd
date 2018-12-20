@@ -1,0 +1,46 @@
+
+<div class="rounded" style="background-color: white; margin: 20px; padding: 20px">
+  <form novalidate [formGroup]="eformu">
+
+    <div class="form-group">
+      <label for="eventname">Event Name</label>
+      <input type="text" class="form-control" id="eventname"
+             placeholder="Please Enter The Name of The Event" name="eventname"
+             formControlName="eventname">
+    </div>
+
+    <div class="form-group">
+      <label for="eventdate"> Event Date</label>
+      <input type="date" class="form-control" id="eventdate"
+             placeholder="Please Enter The Event Date" name="eventdate"
+             formControlName="eventdate">
+    </div>
+
+    <div class="form-group">
+      <label for="eventcapacity">Event Capacity</label>
+      <input type="number" class="form-control"
+             formControlName="eventcapacity" id="eventcapacity"
+             placeholder="Please Enter The Event Capacity" name="eventcapacity">
+    </div>
+
+
+    <div class="form-group">
+      <label for="eventcity"> City</label>
+      <input type="text" class="form-control"
+             formControlName="eventcity"
+             id="eventcity" placeholder="Please Enter Your City" name="eventcity">
+    </div>
+
+    <!--<div class="form-group">-->
+      <!--<label for="ecounter"> ecounter</label>-->
+      <!--<input type="number" class="form-control"-->
+             <!--formControlName="ecounter"-->
+             <!--id="ecounter" name="ecounter">-->
+    <!--</div>-->
+    <button type="submit" class="btn btn-primary"
+            (click)="onSubmit()"
+            [disabled]="!eformu.valid">Submit</button>
+  </form>
+</div>
+
+

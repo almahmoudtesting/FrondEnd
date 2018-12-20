@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-6">
+    <ul *ngFor="let event of events$ "class="list-group-item" (click)="getEvent(event)">
+      <li>
+        {{event.eventname}}
+
+      </li>
+    </ul>
+
+    <div>
+
+      <p>
+        <a routerLink="/createvent" class="btn btn-primary">Add Event</a>
+
+      </p>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <app-eventdetails [event]="currentEvent"></app-eventdetails>
+
+  </div>
+
+
+</div>
