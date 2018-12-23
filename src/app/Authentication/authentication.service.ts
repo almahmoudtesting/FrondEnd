@@ -29,4 +29,17 @@ export class AuthenticationService {
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser');
     }
+    getUser() {
+      const user = JSON.parse(localStorage.getItem('currentUser'));
+      if (user) {
+        return user.userID;
+      }
+    }
+    getRole() {
+      const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      if (currentUser) {
+        return currentUser.Role;
+      }
+    }
 }
+// get role

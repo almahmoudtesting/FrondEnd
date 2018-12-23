@@ -10,7 +10,7 @@
     <div>
 
       <p>
-        <a routerLink="/createvent" class="btn btn-primary">Add Event</a>
+        <a *ngIf ="organizer" routerLink="/createvent" class="btn btn-primary">Add Event</a>
 
       </p>
     </div>

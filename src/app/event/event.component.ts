@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Eventservice} from './eventservice';
+import {AuthenticationService} from '../Authentication/authentication.service';
 
 @Component({
   selector: 'app-event',
@@ -9,12 +10,16 @@ import {Eventservice} from './eventservice';
 export class EventComponent implements OnInit {
   events$: Event[];
   currentEvent: Event;
+  admin = false;
+  user = false;
+  organizer = false;
 
-  constructor(private  eventService: Eventservice ) {
+  constructor(private  eventService: Eventservice , private auth: AuthenticationService ) {
   }
 
   ngOnInit() {
     this.getEvents();
+    this.getRole();
   }
   getEvents() {
     this.eventService.getEvents().subscribe( EventData => {
@@ -26,5 +31,16 @@ export class EventComponent implements OnInit {
   }
   getEvent(event) {
     this.currentEvent = event;
+  }
+  getRole() {
+    if (this.auth.getRole().includes('ROLE_ADMIN')) {
+      return this.admin = true;
+    }
+    if (this.auth.getRole().includes('ROLE_USER')) {
+      return this.user = true;
+    }
+    if (this.auth.getRole().includes('ROLE_ORGANIZER')) {
+      return this.organizer = true;
+    }
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Eventservice} from '../eventservice';
+import {AuthenticationService} from '../../Authentication/authentication.service';
 
 @Component({
   selector: 'app-createvent',
@@ -12,7 +13,7 @@ export class CreateventComponent implements OnInit {
   event$: Observable<Event>;
   eForm: FormGroup;
   organizerid: number;
-  constructor(private  formBuilder: FormBuilder, private eventService: Eventservice) {}
+  constructor(private  formBuilder: FormBuilder, private eventService: Eventservice , private auth: AuthenticationService) {}
 
   ngOnInit() {
     this.eForm = this.formBuilder.group({
@@ -22,6 +23,7 @@ export class CreateventComponent implements OnInit {
       eventcity: '',
       ecounter: ''
     });
+    this.organizerid = this.auth.getUser();
   }
 onSubmit() {
     this.eventService.addEvent(this.organizerid, this.eForm).subscribe(res => {
