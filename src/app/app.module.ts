@@ -17,6 +17,7 @@ import { EventComponent } from './event/event.component';
 import { EventdetailsComponent } from './event/eventdetails.component';
 import { EservicesComponent } from './event/eservices/eservices.component';
 import { CreateventComponent } from './event/createvent/createvent.component';
+import { TicketComponent } from './ticket/ticket.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { CreateventComponent } from './event/createvent/createvent.component';
     EventComponent,
     EventdetailsComponent,
     EservicesComponent,
-    CreateventComponent
+    CreateventComponent,
+    TicketComponent
   ],
   imports: [
     BrowserModule,

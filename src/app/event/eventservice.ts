@@ -2,6 +2,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {User} from '../user/user.model';
+import {Ticket} from '../ticket/ticket.model';
 
 const headers = new HttpHeaders().set('Content-Type', 'application/json');
 const API_ARGS = {headers: headers};
@@ -30,5 +31,9 @@ export class Eventservice {
   }
   getEvent(id: number): Observable<Event> {
     return this.http.get<Event>(`api/Events/FindEvents/` + `${id}`);
+  }
+  addTicket(uid: number, eventid: number): Observable<Ticket> {
+    return this.http.get<Ticket>(`api/Tickets/AddTickets/` + `${uid}` + `/` + `${eventid}`, API_ARGS);
+
   }
 }

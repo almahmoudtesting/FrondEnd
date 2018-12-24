@@ -1,0 +1,12 @@
+<div *ngIf="event">
+  <ul>
+
+
+
+    <li>Name: {{event.eventname}}</li>
+    <td> <button [routerLink]="['event',event.eventid]" class="btn btn-danger">Edit </button>
+      <button (click)= "addTicket(event.eventid)" class="btn btn-danger">Book</button></td>
+
+  </ul>
+
+</div>

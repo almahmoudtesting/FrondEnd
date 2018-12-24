@@ -4,22 +4,16 @@ import {Subscription} from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
 import {Eventservice} from './eventservice';
 import {AuthenticationService} from '../Authentication/authentication.service';
+import {Ticket} from '../ticket/ticket.model';
 
 @Component({
   selector: 'app-eventdetails',
-  template: `<div *ngIf="event">
-    <ul>
-
-
-
-      <li>Name: {{event.eventname}}</li>
-      <td> <button [routerLink]="['event',event.eventid]" class="btn btn-danger">Edit </button></td>
-    </ul>
-
-  </div>`
+  templateUrl: './eventdetails.component.html',
 })
 export class EventdetailsComponent implements OnInit {
   @Input() event: Event;
+  ticket: Ticket;
+  userid: number;
   eventid: number;
   private sub: Subscription;
   admin = false;
@@ -32,6 +26,14 @@ export class EventdetailsComponent implements OnInit {
     this.sub = this.route.params.subscribe((value: any) => {this.eventid = value.eventid; });
     console.log('eventid is', this.eventid);
 
+  }
+
+  addTicket(eventid: number) {
+    this.eventService.addTicket(this.auth.getUser(), eventid).subscribe(TicketData => {},err => console.log(err),
+      () => console.log('Booked'));
+
+    console.log('this is event id', this.eventid);
+    console.log('this is user id', this.auth.getUser());
   }
   getRole() {
   if (this.auth.getRole().includes('ROLE_ADMIN')) {

@@ -26,7 +26,8 @@ const routes: Routes = [
   {path: 'events', component: EventComponent},
  // {path: 'events/event/:eventid' , component: EventComponent},
   {path: 'createvent' , component: CreateventComponent},
-  {path: 'events/event/:eventid', component: EservicesComponent }
+  {path: 'events/event/:eventid', component: EservicesComponent },
+  {path: 'events/eventt/:eventid', component: EventdetailsComponent}
 ];
 
 @NgModule({
