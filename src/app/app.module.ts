@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {MainComponent} from './MainComponent';
 import { UserComponent } from './user/user.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { OrganizerComponent } from './register/organizerreg/organizer.component';
@@ -18,6 +18,8 @@ import { EventdetailsComponent } from './event/eventdetails.component';
 import { EservicesComponent } from './event/eservices/eservices.component';
 import { CreateventComponent } from './event/createvent/createvent.component';
 import { TicketComponent } from './ticket/ticket.component';
+import {BasicAuthInterceptor} from './Authentication/basic-auth.interceptor';
+import {ErrorInterceptor} from './Authentication/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,10 @@ import { TicketComponent } from './ticket/ticket.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true},
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
+  ],
   bootstrap: [MainComponent]
 })
 export class AppModule { }

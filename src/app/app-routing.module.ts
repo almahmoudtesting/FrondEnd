@@ -11,19 +11,20 @@ import {EventComponent} from './event/event.component';
 import {EventdetailsComponent} from './event/eventdetails.component';
 import {EservicesComponent} from './event/eservices/eservices.component';
 import {CreateventComponent} from './event/createvent/createvent.component';
+import {AuthGuard} from './Authentication/auth.guard';
 
 
 const routes: Routes = [
   {path: '', component: AppComponent},
   {path: 'home', component: AppComponent},
-  {path: 'users', component: UserComponent},
+  {path: 'users', component: UserComponent, canActivate: [AuthGuard], data: { expectedRole: 'ROLE_ADMIN'}},
   // {path: 'user/:id', component: UserComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'orgnizerreg', component: OrganizerComponent},
   {path: 'userreg', component: UserregComponent},
   {path: 'login', component: LoginComponent},
   {path: 'users/user/:userid' , component: UservicesComponent},
-  {path: 'events', component: EventComponent},
+  {path: 'events', component: EventComponent, canActivate: [AuthGuard]},
  // {path: 'events/event/:eventid' , component: EventComponent},
   {path: 'createvent' , component: CreateventComponent},
   {path: 'events/event/:eventid', component: EservicesComponent },

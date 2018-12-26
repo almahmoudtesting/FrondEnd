@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {AuthenticationService} from './Authentication/authentication.service';
 
 @Component({
   selector: 'app-main',
@@ -10,6 +11,7 @@ import {Component, OnInit} from '@angular/core';
     <a routerLink="/register" class="btn btn-primary">Register</a>
     <a routerLink="/login" class="btn btn-primary">Login </a>
     <a routerLink="/events" class="btn btn-primary">Events</a>
+     <a (click)="logout()" routerLink="/login" class="btn btn-primary">Logout</a>
     <hr>
 		<router-outlet></router-outlet>
     <hr >
@@ -18,6 +20,11 @@ import {Component, OnInit} from '@angular/core';
   `
 })
 export class MainComponent implements OnInit {
-  constructor() {}
+  constructor( private auth: AuthenticationService) {}
   ngOnInit() { }
+  logout() {
+    // remove user from local storage to log user out
+    this.auth.logout();
+    console.log('logged out');
+  }
 }
