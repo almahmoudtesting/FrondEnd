@@ -40,5 +40,8 @@ export class UserService {
     return this.http.delete<User>(`api/Users/DeleteUser/` + `${userid}`);
     }
 
+    enableUser(userid: number): Observable<User> {
+    return this.http.get<User>(`api/Users/EnableUser/` + `${userid}`);
+    }
 
 }

@@ -33,4 +33,5 @@ export class UserComponent implements OnInit {
     this.currentUser = user;
 
   }
+
 }

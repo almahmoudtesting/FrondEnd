@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-3">
   <ul *ngFor="let user of users$ "class="list-group-item" (click)="getUser(user)">
     <li>
       {{user.username}}
@@ -8,7 +8,7 @@
   </ul>
 </div>
 
-<div class="col-md-6">
+<div class="col-md-9">
   <app-userdetails [user]="currentUser"></app-userdetails>
 
 </div>

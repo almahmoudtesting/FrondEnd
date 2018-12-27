@@ -41,7 +41,7 @@ import {ErrorInterceptor} from './Authentication/error.interceptor';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // FormsModule,
+     FormsModule,
     ReactiveFormsModule,
     HttpClientModule
   ],
