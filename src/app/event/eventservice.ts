@@ -36,4 +36,7 @@ export class Eventservice {
     return this.http.get<Ticket>(`api/Tickets/AddTickets/` + `${uid}` + `/` + `${eventid}`, API_ARGS);
 
   }
+  addComment(a, uid: number , eid: number): Observable<Comment> {
+    return this.http.post<Comment>(`api/Comments/AddComment/` + `${uid}` + `/` + `${eid}` , JSON.stringify(a.value), API_ARGS);
+  }
 }

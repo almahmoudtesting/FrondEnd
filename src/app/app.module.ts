@@ -20,6 +20,9 @@ import { CreateventComponent } from './event/createvent/createvent.component';
 import { TicketComponent } from './ticket/ticket.component';
 import {BasicAuthInterceptor} from './Authentication/basic-auth.interceptor';
 import {ErrorInterceptor} from './Authentication/error.interceptor';
+import { CommentComponent } from './comment/comment.component';
+import { ReviewComponent } from './review/review.component';
+import { MyprofileComponent } from './myprofile/myprofile.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import {ErrorInterceptor} from './Authentication/error.interceptor';
     EventdetailsComponent,
     EservicesComponent,
     CreateventComponent,
-    TicketComponent
+    TicketComponent,
+    CommentComponent,
+    ReviewComponent,
+    MyprofileComponent
   ],
   imports: [
     BrowserModule,

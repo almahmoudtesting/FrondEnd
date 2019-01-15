@@ -4,9 +4,23 @@
 
 
     <li>Name: {{event.eventname}}</li>
+    <li>City: {{event.eventcity}}</li>
     <td> <button [routerLink]="['event',event.eventid]" class="btn btn-danger">Edit </button>
       <button (click)= "addTicket(event.eventid)" class="btn btn-danger">Book</button></td>
 
   </ul>
+  <div class="rounded" style="background-color: white; margin: 20px; padding: 20px">
+    <form novalidate [formGroup]="cForm">
 
+      <div class="form-group">
+        <label for="Comment">Comment</label>
+        <input type="text" class="form-control" id="Comment"
+               placeholder="Write a Comment" name="Comment"
+               formControlName="Comment">
+      </div>
+      <button type="submit" class="btn btn-primary"
+              (click)="addComment()"
+              [disabled]="!cForm.valid">Add</button>
+    </form>
+  </div>
 </div>
