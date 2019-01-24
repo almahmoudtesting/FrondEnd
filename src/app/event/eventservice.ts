@@ -39,4 +39,7 @@ export class Eventservice {
   addComment(a, uid: number , eid: number): Observable<Comment> {
     return this.http.post<Comment>(`api/Comments/AddComment/` + `${uid}` + `/` + `${eid}` , JSON.stringify(a.value), API_ARGS);
   }
+  approve(id: number): Observable<Event> {
+    return this.http.put<Event>(`api/Events/Approval/` + `${id}`, API_ARGS);
+  }
 }

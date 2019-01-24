@@ -64,4 +64,13 @@ export class EventdetailsComponent implements OnInit {
       }, err => console.log(err),
       () => console.log('Comment Added'));
   }
+
+  Approve(eventid: number) {
+    this.eventService.approve(eventid).subscribe(ApproveData => {}, err => console.log(err),
+      () => console.log('Approved'));
+  }
+  deleteEvent(eventid: number) {
+    this.eventService.deleteEvent(eventid).subscribe(DeleteEData => {}, err => console.log(err),
+      () => console.log('Deleted'));
+  }
 }

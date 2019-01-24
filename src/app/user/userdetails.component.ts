@@ -76,11 +76,11 @@ export class UserdetailsComponent implements OnInit {
   }
 
   deleteUser(userid: number) {
-    this.userService.deleteUser(this.auth.getUser()).subscribe(DeleteData => {}, err => console.log(err),
+    this.userService.deleteUser(userid).subscribe(DeleteData => {}, err => console.log(err),
       () => console.log('Deleted'));
   }
   enableUser(userid: number) {
-    this.userService.enableUser(this.auth.getUser()).subscribe(EnableData => {}, err => console.log(err),
+    this.userService.enableUser(userid).subscribe(EnableData => {}, err => console.log(err),
       () => console.log('Enabled'));
   }
 }

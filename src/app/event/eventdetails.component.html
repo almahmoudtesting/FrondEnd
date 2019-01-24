@@ -1,13 +1,13 @@
 <div *ngIf="event">
   <ul>
 
-
-
     <li>Name: {{event.eventname}}</li>
     <li>City: {{event.eventcity}}</li>
-    <td> <button [routerLink]="['event',event.eventid]" class="btn btn-danger">Edit </button>
-      <button (click)= "addTicket(event.eventid)" class="btn btn-danger">Book</button></td>
-
+    <td> <button [routerLink]="['event',event.eventid]" class="btn btn-secondary">Edit </button>
+      <button (click)= "addTicket(event.eventid)" class="btn btn-light">Book</button>
+      <button (click)="Approve(event.eventid)" class="btn btn-success">Approve</button>
+      <button (click)="deleteEvent(event.eventid)" class="btn btn-danger">Delete</button>
+    </td>
   </ul>
   <div class="rounded" style="background-color: white; margin: 20px; padding: 20px">
     <form novalidate [formGroup]="cForm">
