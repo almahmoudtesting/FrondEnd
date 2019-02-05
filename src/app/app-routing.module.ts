@@ -24,13 +24,15 @@ const routes: Routes = [
   {path: 'orgnizerreg', component: OrganizerComponent},
   {path: 'userreg', component: UserregComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'users/user/:userid' , component: UservicesComponent},
+  {path: 'users/user/:userid' , component: UservicesComponent, canActivate: [AuthGuard], data: { expectedRole: 'ROLE_ADMIN'}},
   {path: 'events', component: EventComponent, canActivate: [AuthGuard]},
  // {path: 'events/event/:eventid' , component: EventComponent},
   {path: 'createvent' , component: CreateventComponent},
   {path: 'events/event/:eventid', component: EservicesComponent },
   {path: 'events/eventt/:eventid', component: EventdetailsComponent},
-  {path: 'myprofile', component: MyprofileComponent, canActivate: [AuthGuard]}
+  {path: 'myprofile', component: MyprofileComponent, canActivate: [AuthGuard]},
+  {path: 'myprofile/user/:userid', component: UservicesComponent, canActivate: [AuthGuard]}
+
 ];
 
 @NgModule({

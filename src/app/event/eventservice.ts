@@ -18,7 +18,9 @@ export class Eventservice {
   getEvents(): Observable<Event[]> {
     return this.http.get<Event[]>(`api/Events/AllEvents`);
   }
-
+  getApprovedEvents(): Observable<Event[]> {
+    return this.http.get<Event[]>(`api/Events/ApprovedActiveEvents`);
+  }
   addEvent( organizerid: number, a): Observable<Event> {
     return this.http.post<Event> (`api/Events/AddEvents/` + `${organizerid}`, JSON.stringify(a.value), API_ARGS);
   }

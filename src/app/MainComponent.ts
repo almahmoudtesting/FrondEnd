@@ -16,7 +16,7 @@ import {AuthenticationService} from './Authentication/authentication.service';
           <a routerLink="/myprofile" class="btn btn-dark">My Profile</a>
           <!--<form class="form-inline my-2 my-lg-0">-->
           <input class="form-control mr-sm-5" type="search" placeholder="Search" aria-label="Search">
-          <a class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</a>
+          <a class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</a>
           <!--</form>-->
         </div>
       </nav>

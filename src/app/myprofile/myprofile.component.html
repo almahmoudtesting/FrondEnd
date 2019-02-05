@@ -1,1 +1,28 @@
-<app-userdetails [user]="currentUser"></app-userdetails>
+<div>
+<table class="table table-dark table-responsive">
+  <thead>
+  <tr>
+    <th scope="col">Username</th>
+    <th scope="col">Email</th>
+    <th scope="col">City</th>
+    <th scope="col">Date of Birth</th>
+    <th scope="col">Edit</th>
+    <th scope="col">Deactivate</th>
+    <th scope="col">Activate</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <td>{{user.username}}</td>
+
+  <td>{{user.useremail}}</td>
+
+  <td>{{user.usercity}}</td>
+
+  <td>{{user.userdob}}</td>
+  <td>
+    <button [routerLink]="['user',user.userid]" class="btn btn-outline-success">Edit</button>
+  </td>
+  </tbody>
+</table>
+</div>

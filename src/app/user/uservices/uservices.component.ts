@@ -3,7 +3,9 @@ import {Observable, Subscribable, Subscription} from 'rxjs';
 import {User} from '../user.model';
  import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../user.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {AuthenticationService} from '../../Authentication/authentication.service';
+import {error} from '@angular/compiler/src/util';
 
 
 @Component({
@@ -16,19 +18,32 @@ export class UservicesComponent implements OnInit {
   myReactiveFormu: FormGroup;
   sub: Subscription;
   userid: number;
+  forbbid;
+  error;
 
 
 
-  constructor(private  formBuilder: FormBuilder, private userService: UserService, private Route: ActivatedRoute) {}
+  constructor(private  formBuilder: FormBuilder, private userService: UserService,
+              private Route: ActivatedRoute,
+              private router: Router,
+              private auth: AuthenticationService) {}
 
   ngOnInit() {
-    this.sub = this.Route.params.subscribe((value: any) => {this.userid = value.userid; });
-    console.log('user id :', this.userid);
-    this.userService.getUser(this.userid).subscribe((value0 => {
-      this.users$ = value0;
-      this.myReactiveFormu.patchValue(this.users$ as any);
-    }));
+    this.sub = this.Route.params.subscribe((value: any) => {this.userid = value.userid;
 
+    if (this.router.url.startsWith('/myprofile')) {
+      if (this.userid != this.auth.getUser()) {
+        this.forbbid = true;
+        console.log('big no no');
+      }
+    }
+    });
+    if (!this.forbbid) {
+      this.userService.getUser(this.userid).subscribe((value0 => {
+        this.users$ = value0;
+        this.myReactiveFormu.patchValue(this.users$ as any);
+      } ), error1 => this.error = true);
+    }
     this.myReactiveFormu = this.formBuilder.group({
 
       useremail: ['', Validators.compose([Validators.required, Validators.email])],

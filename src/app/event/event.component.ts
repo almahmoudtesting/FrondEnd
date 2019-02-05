@@ -43,4 +43,12 @@ export class EventComponent implements OnInit {
       return this.organizer = true;
     }
   }
+  getApprovedEvents() {
+    this.eventService.getApprovedEvents().subscribe( EventData => {
+        this.events$ = EventData;
+      },
+      err => console.log(err),
+      () => console.log('Getting Approved Events ...')
+    );
+  }
 }
