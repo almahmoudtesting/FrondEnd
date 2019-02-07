@@ -12,11 +12,11 @@ import {AuthenticationService} from './Authentication/authentication.service';
           <a routerLink="/register" class="btn btn-dark">Register</a>
           <a routerLink="/login" class="btn btn-dark">Login </a>
           <a routerLink="/events" class="btn btn-dark">Events</a>
-          <a (click)="logout()" routerLink="/login" class="btn btn-dark">Logout</a>
           <a routerLink="/myprofile" class="btn btn-dark">My Profile</a>
+          <a (click)="logout()" routerLink="/login" class="btn btn-dark">Logout</a>
           <!--<form class="form-inline my-2 my-lg-0">-->
-          <input class="form-control mr-sm-5" type="search" placeholder="Search" aria-label="Search">
-          <a class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</a>
+          <!--<input class="form-control mr-sm-5" type="search" placeholder="Search" aria-label="Search"> -->
+          <!--<a class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</a>-->
           <!--</form>-->
         </div>
       </nav>

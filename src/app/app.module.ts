@@ -23,6 +23,7 @@ import {ErrorInterceptor} from './Authentication/error.interceptor';
 import { CommentComponent } from './comment/comment.component';
 import { ReviewComponent } from './review/review.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
+import { FilterPipe } from './event/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { MyprofileComponent } from './myprofile/myprofile.component';
     TicketComponent,
     CommentComponent,
     ReviewComponent,
-    MyprofileComponent
+    MyprofileComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

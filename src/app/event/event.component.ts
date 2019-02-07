@@ -13,7 +13,7 @@ export class EventComponent implements OnInit {
   admin = false;
   user = false;
   organizer = false;
-
+  public searchText: string;
   constructor(private  eventService: Eventservice , private auth: AuthenticationService ) {
   }
 
