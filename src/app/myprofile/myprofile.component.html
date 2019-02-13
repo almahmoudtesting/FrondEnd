@@ -7,8 +7,8 @@
     <th scope="col">City</th>
     <th scope="col">Date of Birth</th>
     <th scope="col">Edit</th>
-    <th scope="col">Deactivate</th>
-    <th scope="col">Activate</th>
+    <th *ngIf="admin" scope="col">Deactivate</th>
+    <th *ngIf="admin" scope="col">Activate</th>
   </tr>
   </thead>
   <tbody>

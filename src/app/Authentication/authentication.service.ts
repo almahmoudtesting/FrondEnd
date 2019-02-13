@@ -6,19 +6,19 @@ import { map } from 'rxjs/operators';
 export class AuthenticationService {
     constructor(private http: HttpClient) { }
 
-    login(username: string, password: string) {
-        let headers = new HttpHeaders();
-        headers = headers.append('Authorization', 'Basic ' + btoa(`${username}:${password}`));
+    login(username: string, userpassword: string) {
+        // let headers = new HttpHeaders();
+        // headers = headers.append('Authorization', 'Basic ' + btoa(`${username}:${password}`));
 
-        return this.http.get<any>( '/UserData', {headers: headers})
+        return this.http.post<any>( '/UserData', {username, userpassword})
             .pipe(map(user => {
                 // login successful if there's a user in the response
                 if (user) {
                     // store user details and basic auth credentials in local storage
                     // to keep user logged in between page refreshes
-                    user.authdata = window.btoa(username + ':' + password);
+                    user.authdata = btoa (`${username}:${userpassword}`);
                     localStorage.setItem('currentUser', JSON.stringify(user));
-                    user = JSON.parse(localStorage.getItem('currentUser'));
+                    // user = JSON.parse(localStorage.getItem('currentUser'));
                 }
 
                 return user;

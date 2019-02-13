@@ -1,6 +1,8 @@
+<input [(ngModel)]="searchText" placeholder="Search.." class="advancedSearchTextbox">
+<p></p>
 <div class="row">
   <div class="col-md-3">
-  <ul *ngFor="let user of users$ "class="list-group-item" (click)="getUser(user)">
+  <ul *ngFor="let user of users$ | filter: { username: searchText}; "class="list-group-item" (click)="getUser(user)">
     <li>
       {{user.username}}
 
