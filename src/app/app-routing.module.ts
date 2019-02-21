@@ -13,6 +13,7 @@ import {EservicesComponent} from './event/eservices/eservices.component';
 import {CreateventComponent} from './event/createvent/createvent.component';
 import {AuthGuard} from './Authentication/auth.guard';
 import {MyprofileComponent} from './myprofile/myprofile.component';
+import {TicketComponent} from './ticket/ticket.component';
 
 
 const routes: Routes = [
@@ -31,8 +32,8 @@ const routes: Routes = [
   {path: 'events/event/:eventid', component: EservicesComponent },
   {path: 'events/eventt/:eventid', component: EventdetailsComponent},
   {path: 'myprofile', component: MyprofileComponent, canActivate: [AuthGuard]},
-  {path: 'myprofile/user/:userid', component: UservicesComponent, canActivate: [AuthGuard]}
-
+  {path: 'myprofile/user/:userid', component: UservicesComponent, canActivate: [AuthGuard]},
+  {path: 'tickets', component: TicketComponent}
 ];
 
 @NgModule({

@@ -1,4 +1,5 @@
 <div>
+  <p>My Information</p>
 <table class="table table-dark table-responsive">
   <thead>
   <tr>
@@ -7,8 +8,8 @@
     <th scope="col">City</th>
     <th scope="col">Date of Birth</th>
     <th scope="col">Edit</th>
-    <th *ngIf="admin" scope="col">Deactivate</th>
-    <th *ngIf="admin" scope="col">Activate</th>
+    <!--<th *ngIf="admin" scope="col">Deactivate</th>-->
+    <!--<th *ngIf="admin" scope="col">Activate</th>-->
   </tr>
   </thead>
   <tbody>
@@ -25,4 +26,26 @@
   </td>
   </tbody>
 </table>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <p>My Tickets</p>
+    <table class="table table-dark table-responsive" *ngFor="let ticket of tickets$ ">
+      <thead>
+      <tr>
+        <th scope="col">Ticket ID</th>
+        <th scope="col">Event Name</th>
+        <th scope="col">Event Date</th>
+      </tr>
+      </thead>
+      <tbody>
+      <td> {{ticket.ticketid}}</td>
+      <td>{{ticket.eventname}}</td>
+      <td>{{ticket.eventdate}}</td>
+      <td></td>
+
+      </tbody>
+    </table>
+  </div>
 </div>

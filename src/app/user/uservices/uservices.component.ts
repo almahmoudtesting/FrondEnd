@@ -48,7 +48,7 @@ export class UservicesComponent implements OnInit {
 
       useremail: ['', Validators.compose([Validators.required, Validators.email])],
       username: ['', Validators.compose([Validators.required, Validators.pattern(/^[a-zA-Z]/)])],
-      userpassword: ['', Validators.compose([Validators.required, Validators.minLength(6), Validators.pattern(/^[a-zA-Z]/)])],
+      userpassword: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
       // confirm: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
       // usergender: ``,
       // firstname: ``,

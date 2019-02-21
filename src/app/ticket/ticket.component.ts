@@ -26,7 +26,7 @@ export class TicketComponent implements OnInit {
         this.tickets$ = TicketData;
       },
       err => console.log(err),
-      () => console.log('Getting Events ...')
+      () => console.log('Getting All Tickets Booked ...')
     ); }
     getTicket(ticket) {
     this.currentTicket = ticket;
